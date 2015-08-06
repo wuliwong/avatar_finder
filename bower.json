@@ -1,0 +1,21 @@
+{
+  "name": "avatar_finder",
+  "version": "0.1.0",
+  "authors": [
+    "Patrick Bradley <patrickbradley777@gmail.com>"
+  ],
+  "main": "./bin/www",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libraries/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass-official": "~3.3.5"
+  }
+}
