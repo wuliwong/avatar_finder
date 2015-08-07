@@ -19860,10 +19860,12 @@ module.exports = warning;
 module.exports = require('./lib/React');
 
 },{"./lib/React":30}],158:[function(require,module,exports){
+//---start requiring things
 var React = require('react');
 var Content= require('./content.jsx');
 var $ = jQuery = require('../../libraries/jquery/dist/jquery');
 var bootstrap = require('../../libraries/bootstrap-sass-official/assets/javascripts/bootstrap');
+//---end requiring things
 
 React.render(
     React.createElement(Content, null),
