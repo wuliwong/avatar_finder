@@ -39,6 +39,10 @@ a.headline:hover {
   font-weight: 700;
   font-size: 5em;
   text-align: center;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
 }
 
 .main-wrapper.compact .headline {
@@ -49,6 +53,10 @@ a.headline:hover {
   font-size: 1.5em;
   color: $beige-lighter;
   margin-bottom: 0px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
 }
 
 .no-results-text, .avatar-text {
@@ -71,9 +79,21 @@ a.headline:hover {
   padding-top: 60px;
   padding-bottom: 60px;
   width: 100%;
-  min-height: 35%;
+  min-height: 60%;
 }
 
-.main-wrapper.compact {
+.avatar-wrapper {
+  margin-top: 50px;
+}
 
+.spacer {
+  height: 35%;
+  min-height: 1px;
+}
+
+.footer {
+}
+
+.footer p {
+  color: $blue;
 }

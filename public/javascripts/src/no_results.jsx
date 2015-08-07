@@ -10,7 +10,7 @@ module.exports = React.createClass({
     });
       return (
         <div className={wrapperClasses}>
-          <h3 className='no-results-text'>We could not find any avatar images, please try another address.</h3>
+          <h3 className='no-results-text'>{this.props.error}</h3>
         </div>
       )
   }

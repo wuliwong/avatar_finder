@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     if (avatar) {
       res.send({email: email, avatar: avatar});
     } else {
-      res.send({error: 'no results'});
+      res.send({error: 'We could not find an avatar image. Please try another email address.'});
     }
   });
 });

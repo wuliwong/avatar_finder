@@ -6075,7 +6075,11 @@ a.headline:hover {
   color: #fbfafa;
   font-weight: 700;
   font-size: 5em;
-  text-align: center; }
+  text-align: center;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease; }
 
 .main-wrapper.compact .headline {
   font-size: 2em; }
@@ -6083,7 +6087,11 @@ a.headline:hover {
 .subheading {
   font-size: 1.5em;
   color: #fbfafa;
-  margin-bottom: 0px; }
+  margin-bottom: 0px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease; }
 
 .no-results-text, .avatar-text {
   color: #fbfafa; }
@@ -6106,4 +6114,14 @@ a.headline:hover {
   padding-top: 60px;
   padding-bottom: 60px;
   width: 100%;
-  min-height: 35%; }
+  min-height: 60%; }
+
+.avatar-wrapper {
+  margin-top: 50px; }
+
+.spacer {
+  height: 35%;
+  min-height: 1px; }
+
+.footer p {
+  color: #2b719c; }

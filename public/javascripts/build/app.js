@@ -19883,7 +19883,7 @@ module.exports = React.createClass({displayName: "exports",
     });
       return (
         React.createElement("div", {className: wrapperClasses}, 
-          React.createElement("h3", {className: "avatar-text text-center"}, "We found an avatar."), 
+          React.createElement("h3", {className: "avatar-text text-center"}, "We found an avatar image!"), 
           React.createElement("img", {className: "thumbnail center-block img-responsive", src: this.props.avatar})
         )
       )
@@ -19903,52 +19903,75 @@ var avatar = '';
 var error = undefined;
 
 module.exports = React.createClass({displayName: "exports",
-    findAvatar: function () {
-      var inputEmail = document.querySelector('.input').value;
-      var theUrl = '/avatar?email=' + inputEmail;
-      var xmlHttp = new XMLHttpRequest();
-      xmlHttp.open( "GET", theUrl, false );
-      xmlHttp.send( null );
+  validateEmail: function(email) {
+      var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+      return re.test(email);
+  },
 
-      var response = JSON.parse(xmlHttp.response);
+  findAvatar: function (e) {
+    e.preventDefault();
+    var inputEmail = document.querySelector('.input').value;
+    if(inputEmail != '') {
+      if (this.validateEmail(inputEmail)) {
+        var theUrl = '/avatar?email=' + inputEmail;
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", theUrl, false );
+        xmlHttp.send( null );
 
-      if (response.error) {
-        this.setState({email: response.email, error: response.error, avatar: ''});
+        var response = JSON.parse(xmlHttp.response);
+
+        if (response.error) {
+          this.setState({email: response.email, error: response.error, avatar: ''});
+        } else {
+          this.setState({email: response.email, avatar: response.avatar, error: undefined});
+        }
       } else {
-        this.setState({email: response.email, avatar: response.avatar, error: undefined});
+        this.setState({email: '', avatar: '', error: 'Please provide a valid email address.'})
       }
-    },
+    }
+  },
 
-    getInitialState: function () {
-      return {
-          email: email,
-          avatar: avatar,
-          error: error
-      }
-    },
+  getInitialState: function () {
+    return {
+        email: email,
+        avatar: avatar,
+        error: error
+    }
+  },
 
   render: function() {
     console.log('email', this.state.email);
     console.log('avatar', this.state.avatar);
 
-    var emailPresent = this.state.email == '' ? false : true;
+    var resultPresent = (this.state.email == '' && this.state.error == undefined) ? false : true;
     var wrapperClasses = classNames({
       'main-wrapper': true,
-      'compact': emailPresent
+      'compact': resultPresent
     });
     return (
-      React.createElement("div", {className: wrapperClasses}, 
-        React.createElement("div", {className: "container"}, 
-          React.createElement("div", {className: "row text-center"}, 
-            React.createElement("a", {className: "headline", href: "/"}, "Avatar Finder"), 
-            React.createElement("div", {className: "content"}, 
-              React.createElement(SearchForm, {onClick: this.findAvatar, email: this.state.email}), 
-              React.createElement(Avatar, {avatar: this.state.avatar}), 
-              React.createElement(NoResults, {error: this.state.error})
+      React.createElement("div", null, 
+        React.createElement("div", {className: wrapperClasses}, 
+          React.createElement("div", {className: "container"}, 
+            React.createElement("div", {className: "row text-center"}, 
+              React.createElement("a", {className: "headline", href: "/"}, "Avatar Finder"), 
+              React.createElement("div", {className: "content col-lg-12 col-xs-12"}, 
+                React.createElement(SearchForm, {onClick: this.findAvatar, email: this.state.email}), 
+                React.createElement(Avatar, {avatar: this.state.avatar}), 
+                React.createElement(NoResults, {error: this.state.error})
+              )
             )
           )
-        )
+        ), 
+        React.createElement("div", {className: "spacer"}
+        ), 
+        React.createElement("div", {className: "container-fluid"}, 
+          React.createElement("div", {className: "footer row text-center"}, 
+            React.createElement("p", null, 
+              "Built with Soul in Atlanta ©2015 by ", React.createElement("a", {href: "http://twitter.com/patrickjbradley"}, "@patrickjbradley")
+            )
+         )
       )
+    )
     )
   }
 });
@@ -19966,7 +19989,7 @@ module.exports = React.createClass({displayName: "exports",
     });
       return (
         React.createElement("div", {className: wrapperClasses}, 
-          React.createElement("h3", {className: "no-results-text"}, "We could not find any avatar images, please try another address.")
+          React.createElement("h3", {className: "no-results-text"}, this.props.error)
         )
       )
   }
@@ -19981,7 +20004,7 @@ module.exports = React.createClass({displayName: "exports",
         React.createElement("div", {className: "row search-form-wrapper text-center"}, 
           React.createElement("span", {className: "subheading"}, "Enter an email address and we will find a corresponding avatar image."), 
           React.createElement("br", null), React.createElement("br", null), 
-          React.createElement("input", {className: "input input-lg col-lg-8 col-lg-offset-1 col-xs-8", name: "email", placeholder: "yourname@example.com", defaultValue: this.props.email}), 
+          React.createElement("input", {type: "email", className: "input input-lg col-lg-8 col-lg-offset-1 col-xs-8", name: "email", placeholder: "yourname@example.com", defaultValue: this.props.email}), 
           React.createElement("a", {href: "#", onClick: this.props.onClick, className: "col-lg-2 col-xs-4 btn btn-lg btn-default"}, "Find image")
         )
       )
