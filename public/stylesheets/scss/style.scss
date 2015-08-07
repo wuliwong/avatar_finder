@@ -36,7 +36,7 @@ a.headline:hover {
 
 .headline {
   color: $beige-lighter;
-  font-weight: 700;
+  font-weight: 100;
   font-size: 5em;
   text-align: center;
   -webkit-transition: all 0.3s ease;
@@ -46,11 +46,12 @@ a.headline:hover {
 }
 
 .main-wrapper.compact .headline {
-  font-size: 2em;
+  font-size: 3em;
 }
 
 .subheading {
-  font-size: 1.5em;
+  font-size: 1.6em;
+  font-weight: 200;
   color: $beige-lighter;
   margin-bottom: 0px;
   -webkit-transition: all 0.3s ease;
@@ -61,6 +62,8 @@ a.headline:hover {
 
 .no-results-text, .avatar-text {
   color: $beige-lighter;
+  font-weight: 200;
+  font-family: serif;
 }
 
 .main-wrapper.compact .subheading {
@@ -87,7 +90,7 @@ a.headline:hover {
 }
 
 .spacer {
-  height: 35%;
+  height: 38%;
   min-height: 1px;
 }
 

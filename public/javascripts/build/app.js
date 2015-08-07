@@ -20002,7 +20002,7 @@ module.exports = React.createClass({displayName: "exports",
   render: function() {
       return (
         React.createElement("div", {className: "row search-form-wrapper text-center"}, 
-          React.createElement("span", {className: "subheading"}, "Enter an email address and we will find a corresponding avatar image."), 
+          React.createElement("span", {className: "subheading"}, "Enter an email address and we will search for a corresponding avatar image."), 
           React.createElement("br", null), React.createElement("br", null), 
           React.createElement("input", {type: "email", className: "input input-lg col-lg-8 col-lg-offset-1 col-xs-8", name: "email", placeholder: "yourname@example.com", defaultValue: this.props.email}), 
           React.createElement("a", {href: "#", onClick: this.props.onClick, className: "col-lg-2 col-xs-4 btn btn-lg btn-default"}, "Find image")

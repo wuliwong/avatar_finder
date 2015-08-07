@@ -6073,7 +6073,7 @@ a.headline:hover {
 
 .headline {
   color: #fbfafa;
-  font-weight: 700;
+  font-weight: 100;
   font-size: 5em;
   text-align: center;
   -webkit-transition: all 0.3s ease;
@@ -6082,10 +6082,11 @@ a.headline:hover {
   -ms-transition: all 0.3s ease; }
 
 .main-wrapper.compact .headline {
-  font-size: 2em; }
+  font-size: 3em; }
 
 .subheading {
-  font-size: 1.5em;
+  font-size: 1.6em;
+  font-weight: 200;
   color: #fbfafa;
   margin-bottom: 0px;
   -webkit-transition: all 0.3s ease;
@@ -6094,7 +6095,9 @@ a.headline:hover {
   -ms-transition: all 0.3s ease; }
 
 .no-results-text, .avatar-text {
-  color: #fbfafa; }
+  color: #fbfafa;
+  font-weight: 200;
+  font-family: serif; }
 
 .main-wrapper.compact .subheading {
   display: none; }
@@ -6120,7 +6123,7 @@ a.headline:hover {
   margin-top: 50px; }
 
 .spacer {
-  height: 35%;
+  height: 38%;
   min-height: 1px; }
 
 .footer p {
