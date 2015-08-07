@@ -6069,7 +6069,7 @@ button.close {
 
 a.headline:hover {
   text-decoration: none;
-  color: #f8f8f8; }
+  color: #fbfafa; }
 
 .headline {
   color: #fbfafa;
@@ -6117,13 +6117,13 @@ a.headline:hover {
   padding-top: 60px;
   padding-bottom: 60px;
   width: 100%;
-  min-height: 60%; }
+  min-height: 40%; }
 
 .avatar-wrapper {
   margin-top: 50px; }
 
 .spacer {
-  height: 38%;
+  height: 58%;
   min-height: 1px; }
 
 .footer p {
