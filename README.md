@@ -15,5 +15,5 @@ Run Tests
 Running the App for Development
 ---------------------
 
-run `nodemon` so you don't have to stop and start the server.
-run `gulp` to watch your js, jsx and scss files, compiling them as you go.
+Run `nodemon` so you don't have to stop and start the server.
+Run `gulp` to watch your .js, .jsx and .scss files, compiling them as you go.
