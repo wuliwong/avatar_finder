@@ -19916,17 +19916,28 @@ module.exports = React.createClass({displayName: "exports",
     if(inputEmail != '') {
       if (this.validateEmail(inputEmail)) {
         var theUrl = '/avatar?email=' + inputEmail;
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open( "GET", theUrl, false );
-        xmlHttp.send( null );
+        var xhr = new XMLHttpRequest();
+        xhr.open( "GET", theUrl, true );
+        var that = this;
+        xhr.onload = function (e) {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              var response = JSON.parse(xhr.response);
 
-        var response = JSON.parse(xmlHttp.response);
-
-        if (response.error) {
-          this.setState({email: response.email, error: response.error, avatar: ''});
-        } else {
-          this.setState({email: response.email, avatar: response.avatar, error: undefined});
-        }
+              if (response.error) {
+                that.setState({email: response.email, error: response.error, avatar: ''});
+              } else {
+                that.setState({email: response.email, avatar: response.avatar, error: undefined});
+              }
+            } else {
+              console.error(xhr.statusText);
+            }
+          }
+        };
+        xhr.onerror = function (e) {
+          console.error(xhr.statusText);
+        };
+        xhr.send( null );
       } else {
         this.setState({email: '', avatar: '', error: 'Please provide a valid email address.'})
       }
