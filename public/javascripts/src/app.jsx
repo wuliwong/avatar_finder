@@ -1,9 +1,9 @@
 var React = require('react');
-var SearchForm = require('./search_form.jsx');
+var Content= require('./content.jsx');
 var $ = jQuery = require('../../libraries/jquery/dist/jquery');
 var bootstrap = require('../../libraries/bootstrap-sass-official/assets/javascripts/bootstrap');
 
 React.render(
-    <SearchForm />,
+    <Content />,
     document.getElementById('mount')
 );

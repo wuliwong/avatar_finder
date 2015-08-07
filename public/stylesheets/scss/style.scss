@@ -41,9 +41,18 @@ a.headline:hover {
   text-align: center;
 }
 
+.main-wrapper.compact .headline {
+  font-size: 2em;
+}
+
 .subheading {
   font-size: 1.5em;
   color: $beige-lighter;
+  margin-bottom: 0px;
+}
+
+.main-wrapper.compact .subheading {
+  display: none;
 }
 
 .main-wrapper {
@@ -55,4 +64,8 @@ a.headline:hover {
   padding-bottom: 60px;
   width: 100%;
   min-height: 35%;
+}
+
+.main-wrapper.compact {
+
 }

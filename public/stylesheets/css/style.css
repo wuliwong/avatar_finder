@@ -6077,9 +6077,16 @@ a.headline:hover {
   font-size: 5em;
   text-align: center; }
 
+.main-wrapper.compact .headline {
+  font-size: 2em; }
+
 .subheading {
   font-size: 1.5em;
-  color: #fbfafa; }
+  color: #fbfafa;
+  margin-bottom: 0px; }
+
+.main-wrapper.compact .subheading {
+  display: none; }
 
 .main-wrapper {
   background-image: -webkit-linear-gradient(top, #2b719c 0%, #58a3ba 100%);
