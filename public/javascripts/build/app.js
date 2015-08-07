@@ -19967,7 +19967,7 @@ module.exports = React.createClass({displayName: "exports",
         React.createElement("div", {className: "container-fluid"}, 
           React.createElement("div", {className: "footer row text-center"}, 
             React.createElement("p", null, 
-              "Built with Soul in Atlanta ©2015 by ", React.createElement("a", {href: "http://twitter.com/patrickjbradley"}, "@patrickjbradley")
+              "Made with Soul in Atlanta ©2015 by ", React.createElement("a", {href: "http://twitter.com/patrickjbradley"}, "@patrickjbradley")
             )
          )
       )

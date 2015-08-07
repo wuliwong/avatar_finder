@@ -74,7 +74,7 @@ module.exports = React.createClass({
         <div className='container-fluid'>
           <div className='footer row text-center'>
             <p>
-              Built with Soul in Atlanta &#169;2015 by <a href='http://twitter.com/patrickjbradley'>@patrickjbradley</a>
+              Made with Soul in Atlanta &#169;2015 by <a href='http://twitter.com/patrickjbradley'>@patrickjbradley</a>
             </p>
          </div>
       </div>
