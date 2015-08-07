@@ -19814,8 +19814,9 @@ var React = require('react');
 module.exports = React.createClass({displayName: "exports",
   render: function() {
       return (
-        React.createElement("div", {className: "container"}, 
-          React.createElement("h1", {className: "text-center"}, "Hello, world from a React.js ComponentWATCHING!")
+        React.createElement("div", {className: "row search-form-wrapper"}, 
+          React.createElement("input", {className: "input-lg col-lg-8 col-lg-offset-1 col-xs-8", name: "email", placeholder: "yourname@example.com"}), 
+          React.createElement("a", {href: "#", className: "col-lg-2 col-xs-4 btn btn-lg btn-default"}, "Find image")
         )
       )
   }
