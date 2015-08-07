@@ -19942,9 +19942,6 @@ module.exports = React.createClass({displayName: "exports",
   },
 
   render: function() {
-    console.log('email', this.state.email);
-    console.log('avatar', this.state.avatar);
-
     var resultPresent = (this.state.email == '' && this.state.error == undefined) ? false : true;
     var wrapperClasses = classNames({
       'main-wrapper': true,
