@@ -10,7 +10,8 @@ module.exports = React.createClass({
     });
       return (
         <div className={wrapperClasses}>
-          <img src={this.props.avatar} />
+          <h3 className='avatar-text text-center'>We found an avatar.</h3>
+          <img className='thumbnail center-block img-responsive' src={this.props.avatar} />
         </div>
       )
   }

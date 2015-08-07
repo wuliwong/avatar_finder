@@ -6085,7 +6085,13 @@ a.headline:hover {
   color: #fbfafa;
   margin-bottom: 0px; }
 
+.no-results-text, .avatar-text {
+  color: #fbfafa; }
+
 .main-wrapper.compact .subheading {
+  display: none; }
+
+.display-none {
   display: none; }
 
 .main-wrapper {

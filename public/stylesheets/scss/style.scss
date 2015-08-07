@@ -51,7 +51,15 @@ a.headline:hover {
   margin-bottom: 0px;
 }
 
+.no-results-text, .avatar-text {
+  color: $beige-lighter;
+}
+
 .main-wrapper.compact .subheading {
+  display: none;
+}
+
+.display-none {
   display: none;
 }
 

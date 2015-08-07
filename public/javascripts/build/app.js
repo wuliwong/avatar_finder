@@ -19870,7 +19870,7 @@ React.render(
     document.getElementById('mount')
 );
 
-},{"../../libraries/bootstrap-sass-official/assets/javascripts/bootstrap":162,"../../libraries/jquery/dist/jquery":163,"./content.jsx":160,"react":157}],159:[function(require,module,exports){
+},{"../../libraries/bootstrap-sass-official/assets/javascripts/bootstrap":163,"../../libraries/jquery/dist/jquery":164,"./content.jsx":160,"react":157}],159:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 
@@ -19883,7 +19883,8 @@ module.exports = React.createClass({displayName: "exports",
     });
       return (
         React.createElement("div", {className: wrapperClasses}, 
-          React.createElement("img", {src: this.props.avatar})
+          React.createElement("h3", {className: "avatar-text text-center"}, "We found an avatar."), 
+          React.createElement("img", {className: "thumbnail center-block img-responsive", src: this.props.avatar})
         )
       )
   }
@@ -19894,26 +19895,42 @@ var React = require('react');
 var classNames = require('classnames');
 var SearchForm = require('./search_form.jsx');
 var Avatar = require('./avatar.jsx');
+var NoResults = require('./no_results.jsx');
 
+//initial state variables
 var email = '';
 var avatar = '';
+var error = undefined;
 
 module.exports = React.createClass({displayName: "exports",
-    findAvatar: function (email) {
-      var avatar = '';
-      this.setState({email: 'joe@example.com', avatar: 'https://profile.microsoft.com/RegsysProfileCenter/Images/personal_info.jpg'});
+    findAvatar: function () {
+      var inputEmail = document.querySelector('.input').value;
+      var theUrl = '/avatar?email=' + inputEmail;
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open( "GET", theUrl, false );
+      xmlHttp.send( null );
+
+      var response = JSON.parse(xmlHttp.response);
+
+      if (response.error) {
+        this.setState({email: response.email, error: response.error, avatar: ''});
+      } else {
+        this.setState({email: response.email, avatar: response.avatar, error: undefined});
+      }
     },
 
     getInitialState: function () {
       return {
           email: email,
-          avatar: avatar
+          avatar: avatar,
+          error: error
       }
     },
 
   render: function() {
     console.log('email', this.state.email);
     console.log('avatar', this.state.avatar);
+
     var emailPresent = this.state.email == '' ? false : true;
     var wrapperClasses = classNames({
       'main-wrapper': true,
@@ -19923,10 +19940,11 @@ module.exports = React.createClass({displayName: "exports",
       React.createElement("div", {className: wrapperClasses}, 
         React.createElement("div", {className: "container"}, 
           React.createElement("div", {className: "row text-center"}, 
-            React.createElement("a", {className: "headline", href: "#"}, "Avatar Finder"), 
+            React.createElement("a", {className: "headline", href: "/"}, "Avatar Finder"), 
             React.createElement("div", {className: "content"}, 
               React.createElement(SearchForm, {onClick: this.findAvatar, email: this.state.email}), 
-              React.createElement(Avatar, {avatar: this.state.avatar})
+              React.createElement(Avatar, {avatar: this.state.avatar}), 
+              React.createElement(NoResults, {error: this.state.error})
             )
           )
         )
@@ -19935,7 +19953,26 @@ module.exports = React.createClass({displayName: "exports",
   }
 });
 
-},{"./avatar.jsx":159,"./search_form.jsx":161,"classnames":2,"react":157}],161:[function(require,module,exports){
+},{"./avatar.jsx":159,"./no_results.jsx":161,"./search_form.jsx":162,"classnames":2,"react":157}],161:[function(require,module,exports){
+var React = require('react');
+var classNames = require('classnames');
+
+module.exports = React.createClass({displayName: "exports",
+  render: function() {
+    var errorPresent = this.props.error ? true : false;
+    var wrapperClasses = classNames({
+      'no-results-wrapper': true,
+      'display-none': !errorPresent
+    });
+      return (
+        React.createElement("div", {className: wrapperClasses}, 
+          React.createElement("h3", {className: "no-results-text"}, "We could not find any avatar images, please try another address.")
+        )
+      )
+  }
+});
+
+},{"classnames":2,"react":157}],162:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -19944,14 +19981,14 @@ module.exports = React.createClass({displayName: "exports",
         React.createElement("div", {className: "row search-form-wrapper text-center"}, 
           React.createElement("span", {className: "subheading"}, "Enter an email address and we will find a corresponding avatar image."), 
           React.createElement("br", null), React.createElement("br", null), 
-          React.createElement("input", {className: "input input-lg col-lg-8 col-lg-offset-1 col-xs-8", name: "email", placeholder: "yourname@example.com", value: this.props.email}), 
+          React.createElement("input", {className: "input input-lg col-lg-8 col-lg-offset-1 col-xs-8", name: "email", placeholder: "yourname@example.com", defaultValue: this.props.email}), 
           React.createElement("a", {href: "#", onClick: this.props.onClick, className: "col-lg-2 col-xs-4 btn btn-lg btn-default"}, "Find image")
         )
       )
   }
 });
 
-},{"react":157}],162:[function(require,module,exports){
+},{"react":157}],163:[function(require,module,exports){
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -22316,7 +22353,7 @@ if (typeof jQuery === 'undefined') {
 
 }(jQuery);
 
-},{}],163:[function(require,module,exports){
+},{}],164:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
