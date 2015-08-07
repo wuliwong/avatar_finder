@@ -5,15 +5,25 @@ $aqua-blue: #58a3ba;
 $blue: #2b719c;
 $gray-brown: #8e9099;
 $beige: #c2b8bd;
+$beige-light: lighten($beige, 15%);
+$beige-lighter: lighten($beige, 24%);
 $sand: #e8dadb;
 $body-bg: $sand;
 $gray-brown-dark: darken($gray-brown, 15%);
 $gray: $gray-brown-dark;
 $brand-primary: $gray-brown-dark;
-$btn-default-bg: $off-white;
+$btn-default-bg: $beige-light;
 $btn-default-color: $gray;
+$input-color-placeholder: $pale-blue;
+$input-color: $blue;
 
 @import "../../libraries/bootstrap-sass-official/assets/stylesheets/bootstrap";
+
+.input {
+  background-color: $beige-lighter;
+  color: $blue;
+  font-weight: bold;
+}
 
 .primary {
   color: $brand-primary;
@@ -25,14 +35,15 @@ a.headline:hover {
 }
 
 .headline {
-  color: $off-white;
+  color: $beige-lighter;
   font-weight: 700;
   font-size: 5em;
   text-align: center;
 }
 
-.sub-heading {
-  color: #428bca;
+.subheading {
+  font-size: 1.5em;
+  color: $beige-lighter;
 }
 
 .main-wrapper {

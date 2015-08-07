@@ -19810,30 +19810,32 @@ module.exports = require('./lib/React');
 
 },{"./lib/React":29}],157:[function(require,module,exports){
 var React = require('react');
+var SearchForm = require('./search_form.jsx');
+var $ = jQuery = require('../../libraries/jquery/dist/jquery');
+var bootstrap = require('../../libraries/bootstrap-sass-official/assets/javascripts/bootstrap');
+
+React.render(
+    React.createElement(SearchForm, null),
+    document.getElementById('mount')
+);
+
+},{"../../libraries/bootstrap-sass-official/assets/javascripts/bootstrap":159,"../../libraries/jquery/dist/jquery":160,"./search_form.jsx":158,"react":156}],158:[function(require,module,exports){
+var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
   render: function() {
       return (
-        React.createElement("div", {className: "row search-form-wrapper"}, 
-          React.createElement("input", {className: "input-lg col-lg-8 col-lg-offset-1 col-xs-8", name: "email", placeholder: "yourname@example.com"}), 
+        React.createElement("div", {className: "row search-form-wrapper text-center"}, 
+          React.createElement("span", {className: "subheading"}, "Enter an email address and we will find a corresponding avatar image."), 
+          React.createElement("br", null), React.createElement("br", null), 
+          React.createElement("input", {className: "input input-lg col-lg-8 col-lg-offset-1 col-xs-8", name: "email", placeholder: "yourname@example.com"}), 
           React.createElement("a", {href: "#", className: "col-lg-2 col-xs-4 btn btn-lg btn-default"}, "Find image")
         )
       )
   }
 });
 
-},{"react":156}],158:[function(require,module,exports){
-var React = require('react');
-var HelloWorld = require('./HelloWorld.jsx');
-var $ = jQuery = require('../../libraries/jquery/dist/jquery');
-var bootstrap = require('../../libraries/bootstrap-sass-official/assets/javascripts/bootstrap');
-
-React.render(
-    React.createElement(HelloWorld, null),
-    document.getElementById('mount')
-);
-
-},{"../../libraries/bootstrap-sass-official/assets/javascripts/bootstrap":159,"../../libraries/jquery/dist/jquery":160,"./HelloWorld.jsx":157,"react":156}],159:[function(require,module,exports){
+},{"react":156}],159:[function(require,module,exports){
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -31410,4 +31412,4 @@ return jQuery;
 
 }));
 
-},{}]},{},[158]);
+},{}]},{},[157]);
